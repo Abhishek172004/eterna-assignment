@@ -11,6 +11,7 @@ import {
     SolarPanelIcon,
     UserStar
 } from 'lucide-react';
+import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 
 
 const Link = ({ href, children, className }: { href: string, children: React.ReactNode, className?: string }) => (
@@ -75,13 +76,22 @@ const Header = () => {
             </div>
 
             {/* Chain Selector (SOL) */}
-            <button className="h-8 rounded-full bg-[#0f1114] border border-green] hover:bg-white/5 gap-2 px-3 hidden sm:flex items-center transition-colors cursor-pointer">
-                <div className="h-4 w-4">
-                  <Image src="/firsticon.svg" width={16} height={16} alt="icon" />
-                </div> 
-                <span className="text-[16px] text-white">SOL</span>
-                <ChevronDown className="h-3 w-3 text-gray-500" />
-            </button>
+            <Popover>
+                <PopoverTrigger asChild>  
+                    <button className="h-8 rounded-full bg-[#0f1114] border border-green] hover:bg-white/5 gap-2 px-3 hidden sm:flex items-center transition-colors cursor-pointer">
+                        <div className="h-4 w-4">
+                        <Image src="/firsticon.svg" width={16} height={16} alt="icon" />
+                        </div> 
+                        <span className="text-[16px] text-white">SOL</span>
+                        <ChevronDown className="h-3 w-3 text-gray-500" />
+                    </button>
+                </PopoverTrigger>
+                <PopoverContent className='h-120 w-80 bg-[#16171d]' >
+                    <div className='bg-[#16171d]  h-50 w-50' >
+
+                    </div>
+                </PopoverContent>
+            </Popover>
 
 
             <div className='flex items-center gap-2 pl-2'>
@@ -100,6 +110,11 @@ const Header = () => {
                     </button>
                 </div>
 
+
+                <Popover>
+                <PopoverTrigger asChild>
+                    
+
                 {/* Wallet Display (The Complex Pill) */}
                 <div className="hidden xl:flex items-center gap-1 bg-[#0f1114] border border-white/10 rounded-full pl-3 pr-2 py-1 h-8 cursor-pointer hover:border-white/20 transition-colors">
                     <Wallet className="h-4 w-4 text-gray-100" />
@@ -114,6 +129,15 @@ const Header = () => {
                     <ChevronDown className="h-3 w-3 text-gray-500 ml-1" />
                 </div>
 
+                    </PopoverTrigger>
+                    <PopoverContent className='h-120 w-80 bg-[#16171d]' >
+                        <div className='bg-[#16171d]  h-50 w-50' >
+
+                        </div>
+                    </PopoverContent>
+                </Popover>
+
+                
                 {/* User Profile (Static Avatar) */}
                 <div className="ml-1 h-8 w-8 rounded-full bg-gray-700 border border-white/10 overflow-hidden cursor-pointer hover:border-white/30 transition-all relative">
                     <UserStar size={32} />

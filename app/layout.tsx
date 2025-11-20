@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import TaskBar from "@/components/TaskBar";
 import { Button } from "@/components/ui/button";
+import DashboardHeader from "@/components/DashboardHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,15 +33,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Header />
-            <TaskBar /> 
-      </ThemeProvider>
+        <Header />
+        <TaskBar />
+        <div className="flex flex-col py-[16px] px-[16px] gap-4">
+          <DashboardHeader/> 
+        </div>
       </body>
     </html>
   );
