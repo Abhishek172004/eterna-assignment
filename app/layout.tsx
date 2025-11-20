@@ -4,6 +4,8 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
+import TaskBar from "@/components/TaskBar";
+import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,8 +38,8 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-
-            <Header/>
+            <Header />
+            <TaskBar /> 
       </ThemeProvider>
       </body>
     </html>

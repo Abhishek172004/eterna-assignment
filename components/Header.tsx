@@ -29,7 +29,7 @@ const Header = () => {
   ];
 
   return (
-    <header className='fixed top-0 left-0 w-full h-16 border-b border-white/10 bg-[#050505] text-white z-50 flex items-center gap-4 px-6 font-sans'>
+    <header className=' left-0 w-full h-16 border-b border-white/10 bg-[#050505] text-white z-50 flex items-center gap-4 px-6 font-sans'>
         
         {/* --- LEFT SIDE: Logo & Navigation --- */}
         <div className='flex items-center gap-4 lg:gap-6'>
@@ -39,7 +39,7 @@ const Header = () => {
                     <Image src='/logo.png' alt="APP LOGO" width={55} height={55} className='h-10 py-1 w-auto object-contain'/>
                 </div>
                 <div className='flex items-center'>
-                <span className="text-[24px]  tracking-tight text-white">AXIOM 
+                <span className="text-[24px]  tracking-tight text-white hidden md:block">AXIOM 
                   <span className="text-[16px] font-normal text-gray-300 "> Pro</span>
                 </span>
                 </div>
