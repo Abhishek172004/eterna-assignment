@@ -29,7 +29,7 @@ import { Button } from './ui/button';
 
 const DashboardHeader = () => {
   return (
-    <div className="w-full h-16 flex items-center justify-between bg-[#050505]">
+    <div className="w-full h-16 flex items-center justify-between bg-black">
         
         {/* --- LEFT: Title & Badges --- */}
         <div className="flex items-center gap-3">

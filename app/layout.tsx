@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import TaskBar from "@/components/TaskBar";
 import { Button } from "@/components/ui/button";
 import DashboardHeader from "@/components/DashboardHeader";
+import Box from "@/components/Box";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,8 +36,9 @@ export default function RootLayout({
       >
         <Header />
         <TaskBar />
-        <div className="flex flex-col py-[16px] px-[16px] gap-4">
+        <div className="flex flex-col gap-y-[16px] px-[16px] py-[20px] gap-4">
           <DashboardHeader/> 
+          <Box/>
         </div>
       </body>
     </html>
