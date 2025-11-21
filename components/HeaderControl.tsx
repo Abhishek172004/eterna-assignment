@@ -1,6 +1,7 @@
 import React from 'react';
 import { Zap, SlidersHorizontal } from 'lucide-react';
 import Image from 'next/image';
+import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 const HeaderControl = () => {
   return (
     <div className="w-full bg-gray-950 p-2 flex items-center justify-between border-b border-white/5">
@@ -40,9 +41,19 @@ const HeaderControl = () => {
             </div>
 
             {/* Filter Settings Icon */}
-            <button className="text-gray-400 hover:text-white transition-colors p-1">
+            <Popover>
+                <PopoverTrigger asChild>  
+                    <button className="text-gray-400 hover:text-white transition-colors p-1">
                 <SlidersHorizontal className="w-4 h-4" />
             </button>
+                </PopoverTrigger>
+                <PopoverContent className='h-60 w-100 bg-[#16171d] flex items-center justify-center' >
+                    <span className='text-white'>
+                        Coming Soon!
+                    </span>
+                </PopoverContent>
+            </Popover>
+            
 
         </div>
     </div>

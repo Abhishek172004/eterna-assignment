@@ -86,10 +86,10 @@ const Header = () => {
                         <ChevronDown className="h-3 w-3 text-gray-500" />
                     </button>
                 </PopoverTrigger>
-                <PopoverContent className='h-120 w-80 bg-[#16171d]' >
-                    <div className='bg-[#16171d]  h-50 w-50' >
-
-                    </div>
+                <PopoverContent className='h-60 w-100 bg-[#16171d] flex items-center justify-center' >
+                    <span className='text-white'>
+                        Coming Soon!
+                    </span>
                 </PopoverContent>
             </Popover>
 
@@ -130,10 +130,10 @@ const Header = () => {
                 </div>
 
                     </PopoverTrigger>
-                    <PopoverContent className='h-120 w-80 bg-[#16171d]' >
-                        <div className='bg-[#16171d]  h-50 w-50' >
-
-                        </div>
+                    <PopoverContent className='h-60 w-100 bg-[#16171d] flex items-center justify-center' >
+                        <span className='text-white'>
+                            Coming Soon!
+                        </span>
                     </PopoverContent>
                 </Popover>
 
