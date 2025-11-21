@@ -9,7 +9,7 @@ import tokens from "../public/token.json";
 
 const Scroll_Area = () => {
   return (
-        <ScrollArea className="h-125 w-full bg-gray-950 border border-gray-700">
+        <ScrollArea className="h-125 w-full bg-gray-950">
           <div className="flex flex-col">
             {tokens.map((item, i) => (
               <TokenCardReplica data={item} />
