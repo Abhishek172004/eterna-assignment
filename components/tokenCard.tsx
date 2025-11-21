@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 // --- TYPES ---
-interface TokenData {
+export interface TokenData {
     img: string;
     ticker: string;
     address: string;
@@ -32,39 +32,13 @@ interface TokenData {
     blueBadge: string;
     king: string;
     
-    // Badges with color logic
-    topHoldersMod: { val: string; color: 'red' | 'green' };
-    devAction: { val: string; time: string; color: 'red' | 'green' };
-    snipers: { val: string; color: 'red' | 'green' };
-    insiders: { val: string; color: 'red' | 'green' };
-    cluster: { val: string; color: 'red' | 'green' };
+    // FIX: Changed specific "red" | "green" to 'string' to prevent type errors
+    topHoldersMod: { val: string; color: string };
+    devAction: { val: string; time: string; color: string };
+    snipers: { val: string; color: string };
+    insiders: { val: string; color: string };
+    cluster: { val: string; color: string };
 }
-
-// --- RANDOM DATA GENERATOR ---
-const generateRandomData = (): TokenData => {
-    return {
-        img: "https://api.dicebear.com/7.x/pixel-art/svg?seed=GAMEOVER", // Pixel art style image
-        ticker: "GAMEOVER",
-        address: "yZqS...pump",
-        name: "GAMEOVER",
-        fullName: "Game Over",
-        time: "29s",
-        volume: "$4K",
-        mcap: "$5.08K",
-        liquidity: "0.307",
-        txCount: 45,
-        txBarGreen: 85, // Mostly green bar like image
-        holders: "13",
-        top10: "4",
-        blueBadge: "0",
-        king: "0/1",
-        topHoldersMod: { val: "17%", color: 'red' },
-        devAction: { val: "2%", time: "8m", color: 'green' },
-        snipers: { val: "15%", color: 'red' },
-        insiders: { val: "0%", color: 'green' },
-        cluster: { val: "13%", color: 'red' }
-    };
-};
 
 const TokenCardReplica = ({ data }: { data: TokenData }) => {
   
@@ -78,10 +52,11 @@ const TokenCardReplica = ({ data }: { data: TokenData }) => {
       icon: any, 
       text: string, 
       subText?: string, 
-      color: 'red' | 'green' 
+      color: string 
   }) => {
-      const colorClass = color === 'red' ? 'text-[#ef4444] border-[#ef4444]/20' : 'text-[#10b981] border-[#10b981]/20';
-      const bgClass = color === 'red' ? 'bg-[#ef4444]/5' : 'bg-[#10b981]/5';
+      const isRed = color === 'red';
+      const colorClass = isRed ? 'text-[#ef4444] border-[#ef4444]/20' : 'text-[#10b981] border-[#10b981]/20';
+      const bgClass = isRed ? 'bg-[#ef4444]/5' : 'bg-[#10b981]/5';
       
       return (
           <div className={`flex items-center gap-1.5 px-1.5 py-0.5 rounded-full border ${colorClass} ${bgClass} text-[10px] font-bold h-5`}>
@@ -93,11 +68,11 @@ const TokenCardReplica = ({ data }: { data: TokenData }) => {
   };
 
   return (
-    <div className="w-full bg-gray-950 border border-white/10 flex items-centergap-3 font-sans select-none border p-2 hover:border-white/10 transition-colors">
+    <div className="w-full border-gray-700 bg-gray-950 border border-white/10 flex items-center gap-3 font-sans select-none p-2 hover:border-white/20 transition-colors">
         
         {/* --- LEFT COLUMN: Image --- */}
         <div className="flex flex-col gap-1 shrink-0 mr-2">
-            <div className="w-14 h-full rounded-md overflow-hidden border border-white/10 bg-[#1a1a1a]">
+            <div className="relative w-14 h-14 rounded-md overflow-hidden border border-white/10 bg-[#1a1a1a]">
                 <img src={data.img} alt={data.name} className="w-full h-full object-cover" />
                 
                 {/* Green Pill Overlay Icon (Bottom Right) */}
@@ -121,8 +96,8 @@ const TokenCardReplica = ({ data }: { data: TokenData }) => {
                 {/* Name Section */}
                 <div className="flex flex-col">
                     <div className="flex items-baseline gap-1.5">
-                        <span className="text-sm font-bold text-white tracking-wide">{data.name}</span>
-                        <span className="text-xs text-gray-500 font-medium">{data.fullName}</span>
+                        <span className="text-sm font-bold text-white tracking-wide">{data.ticker}</span>
+                        <span className="text-xs text-gray-500 font-medium truncate max-w-[80px]">{data.name}</span>
                         <Copy className="w-3 h-3 text-gray-600 hover:text-gray-400 cursor-pointer" />
                     </div>
                     
@@ -183,7 +158,8 @@ const TokenCardReplica = ({ data }: { data: TokenData }) => {
             </div>
 
             {/* BOTTOM ROW: Badges */}
-            <div className="flex items-center gap-2 mt-1.5">
+            <div className="flex items-center gap-2 mt-1.5 overflow-hidden">
+                
                 <StatBadge icon={Users} text={data.topHoldersMod.val} color={data.topHoldersMod.color} />
                 
                 {/* Complex Chef Badge */}
@@ -199,7 +175,7 @@ const TokenCardReplica = ({ data }: { data: TokenData }) => {
                 <StatBadge icon={Boxes} text={data.cluster.val} color={data.cluster.color} />
 
                 <div className="ml-auto">
-                     <Zap className="w-3 h-3 text-[#5e6ad2] fill-[#5e6ad2]/30" />
+                     <Zap className="w-3.5 h-3.5 text-[#5e6ad2] fill-[#5e6ad2]/30" />
                 </div>
             </div>
 
