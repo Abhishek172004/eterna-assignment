@@ -2,13 +2,13 @@ import React from 'react';
 import { Zap, SlidersHorizontal } from 'lucide-react';
 import Image from 'next/image';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-const HeaderControl = () => {
+const HeaderControl = ({ name }: { name?: string }) => {
   return (
     <div className="w-full bg-gray-950 p-2 flex items-center justify-between border-b border-white/5">
         
         {/* Left Title */}
         <h2 className="text-lg text-white tracking-tight">
-            New Pairs
+            {name || 'Tokens'}
         </h2>
 
         {/* Right Controls Container */}

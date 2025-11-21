@@ -12,16 +12,16 @@ const Box = () => {
     <div className="w-full h-135 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-700
     border border-gray-700 text-white bg-gray-950">
       <div className='flex flex-col'>
-          <HeaderControl/>
+          <HeaderControl name="New Pairs"/>
           <Scroll_Area/>
       </div>
 
       <div>
-        <HeaderControl/>
+        <HeaderControl name="Final Stretch"/>
         <Scroll_Area/>
       </div>
       <div>
-        <HeaderControl/>
+        <HeaderControl name="Migrated"/>
         <Scroll_Area/>
       </div>
     </div>

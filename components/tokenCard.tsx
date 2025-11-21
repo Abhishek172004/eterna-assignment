@@ -66,10 +66,8 @@ const generateRandomData = (): TokenData => {
     };
 };
 
-const TokenCardReplica = () => {
-  // Generate data on render (or move outside component for static data)
-  const data = generateRandomData();
-
+const TokenCardReplica = ({ data }: { data: TokenData }) => {
+  
   // Helper for the bottom badges
   const StatBadge = ({ 
       icon: Icon, 
@@ -95,11 +93,11 @@ const TokenCardReplica = () => {
   };
 
   return (
-    <div className="w-full bg-gray-950 border border-white/10 flex items-centergap-3 font-sans select-none border p-3 hover:border-white/10 transition-colors">
+    <div className="w-full bg-gray-950 border border-white/10 flex items-centergap-3 font-sans select-none border p-2 hover:border-white/10 transition-colors">
         
         {/* --- LEFT COLUMN: Image --- */}
-        <div className="flex flex-col gap-1 shrink-0">
-            <div className="relative w-14 h-14 rounded-md overflow-hidden border border-white/10 bg-[#1a1a1a]">
+        <div className="flex flex-col gap-1 shrink-0 mr-2">
+            <div className="w-14 h-full rounded-md overflow-hidden border border-white/10 bg-[#1a1a1a]">
                 <img src={data.img} alt={data.name} className="w-full h-full object-cover" />
                 
                 {/* Green Pill Overlay Icon (Bottom Right) */}
